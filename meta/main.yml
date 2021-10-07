@@ -1,0 +1,15 @@
+galaxy_info:
+  author: Babis Kaidos
+  description: A role that installs kubectl from the SNAP repository
+  license: Apache-2.0
+  min_ansible_version: 2.1
+  platforms:
+    - name: Ubuntu
+      versions:
+        - bionic
+        - focal
+  galaxy_tags:
+    - kubectl
+    - kubernetes
+    - snap
+dependencies: []

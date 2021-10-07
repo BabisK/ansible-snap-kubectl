@@ -1,0 +1,5 @@
+---
+# defaults file for ansible-snap-kubectl
+kubectl_snap__state: present
+kubectl_snap__channel: "stable"
+kubectl_snap__autocomplete: true

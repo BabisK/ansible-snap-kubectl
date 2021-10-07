@@ -1,0 +1,39 @@
+---
+- name: Make sure dependencies are installed
+  ansible.builtin.apt:
+    name:
+      - snapd
+    state: present
+    update_cache: true
+  tags:
+    - kubectl
+    - kubectl.install
+- name: Install kubectl from snap
+  become: true
+  community.general.snap:
+    name: kubectl
+    classic: true
+    state: {{ kubectl_snap__state }}
+    channel: {{ kubectl_snap__channel }}
+  tags:
+    - kubectl
+    - kubectl.install
+
+- name: Check if bash is installed
+  ansible.builtin.command: dpkg-query -W bash
+  ignore_errors: True
+  register: bash_installed
+  when: kubectl_snap__autocomplete
+  tags:
+    - kubectl
+    - kubectl.autocomplete
+    - kubectl.autocomplete.bash
+- name: Enable kubectl autocomplete for bash
+  become: true
+  ansible.builtin.shell:
+    cmd: kubectl completion bash > /etc/bash_completion.d/kubectl
+  when: kubectl_snap__autocomplete and bash_installed is succeded
+  tags:
+    - kubectl
+    - kubectl.autocomplete
+    - kubectl.autocomplete.bash
