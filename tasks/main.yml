@@ -32,7 +32,7 @@
   become: true
   ansible.builtin.shell:
     cmd: kubectl completion bash > /etc/bash_completion.d/kubectl
-  when: kubectl_snap__autocomplete and bash_installed is succeded
+  when: kubectl_snap__autocomplete and bash_installed is succeeded
   tags:
     - kubectl
     - kubectl.autocomplete
