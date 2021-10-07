@@ -13,8 +13,8 @@
   community.general.snap:
     name: kubectl
     classic: true
-    state: {{ kubectl_snap__state }}
-    channel: {{ kubectl_snap__channel }}
+    state: '{{ kubectl_snap__state }}'
+    channel: '{{ kubectl_snap__channel }}'
   tags:
     - kubectl
     - kubectl.install
