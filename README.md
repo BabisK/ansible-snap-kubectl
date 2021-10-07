@@ -18,7 +18,7 @@ Example Playbook
 ```yaml
 - hosts: servers
   roles:
-    - role: babisk.ansible-snap-bubectl
+    - role: babisk.kubectl
 ```
 
 License

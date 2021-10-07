@@ -1,4 +1,5 @@
 galaxy_info:
+  role_name: kubectl
   author: Babis Kaidos
   description: A role that installs kubectl from the SNAP repository
   license: Apache-2.0
